@@ -7,60 +7,71 @@
 <iframe width="560" height="315" src="https://www.youtube.com/embed/gWjofpeBUU4" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
 
 
-<button class="my_own" type="button" onclick="share();">Share on Facebook</button>
-
-    <script>
-        window.fbAsyncInit = function () {
-            FB.init({
-                appId: 'YOUR_FB_APP_ID',
-                xfbml: true,
-                cookie: true,
-                version: 'v2.6'
-            });
-        };
-
-        (function (d, s, id) {
-            var js, fjs = d.getElementsByTagName(s)[0];
-            if (d.getElementById(id)) { return; }
-            js = d.createElement(s); js.id = id;
-            js.src = "//connect.facebook.net/en_US/sdk.js";
-            fjs.parentNode.insertBefore(js, fjs);
-        }(document, 'script', 'facebook-jssdk'));
-        });
-
-function share() {
-            FB.ui({
-                method: 'feed',
-                name: 'Example Title',
-                link: 'http://www.example.com',
-                picture: 'http://www.example.com/example.jpg',
-                description: 'example desc'
-            }, function (response) {
-                if (response && response.post_id) {
-                    alert('Thank you for sharing!');
-                } else {
-                    alert('You have cancelled the share.');
-                }
-            });
-        }
-    </script>
-  
-<!--
 <div id="fb-root"></div>
-<script>(function(d, s, id) {
-  var js, fjs = d.getElementsByTagName(s)[0];
-  if (d.getElementById(id)) return;
-  js = d.createElement(s); js.id = id;
-  js.src = 'https://connect.facebook.net/en_GB/sdk.js#xfbml=1&version=v3.2&appId=589081144882435&autoLogAppEvents=1';
-  fjs.parentNode.insertBefore(js, fjs);
-}(document, 'script', 'facebook-jssdk'));</script>
 
-<div class="fb-share-button" data-href="https://developers.facebook.com/docs/plugins/" data-layout="button_count" 
-data-size="small" data-mobile-iframe="true"><a target="_blank" 
-href="https://www.facebook.com/sharer/sharer.php?u=https%3A%2F%2Fdevelopers.facebook.com%2Fdocs%2Fplugins%2F&amp;
-src=sdkpreparse" class="fb-xfbml-parse-ignore">Share</a></div>
--->
+<script>
+    window.fbAsyncInit = function() {
+    FB.init({
+        appId: '589081144882435',
+        status: true,
+        cookie: true,
+        xfbml: true,
+        oauth: true
+    });
+    FB.Event.subscribe('edge.create', function(response) {
+        alert('You liked the URL: ' + response);
 
+      });
+};
+(function(d) {
+    var js, id = 'facebook-jssdk';
+    if (d.getElementById(id)) {
+        return;
+    }
+    js = d.createElement('script');
+    js.id = id;
+    js.async = true;
+    js.src = "//connect.facebook.net/en_US/all.js";
+    d.getElementsByTagName('head')[0].appendChild(js);
+}(document));
+
+        </script>
+<div class="fb-lik
+            FB.ui(
+{
+  method: 'feed',
+  name: 'Facebook Dialogs',
+  link: 'https://developers.facebook.com/docs/dialogs/',
+  picture: 'http://fbrell.com/f8.jpg',
+  caption: 'Reference Documentation',
+  description: 'Dialogs provide a simple, consistent interface for applications to interface with users.'
+},
+function(response) {
+  if (response && response.post_id) {
+    alert('Post was published.');
+  } else {
+    alert('Post was not published.');
+  }
+}
+);e" data-href=" My URL " data-layout="button_count" data-action="like" data-show-faces="false" data-share="true"></div>
+
+  FB.ui(
+{
+  method: 'feed',
+  name: 'Facebook Dialogs',
+  link: 'https://developers.facebook.com/docs/dialogs/',
+  picture: 'http://fbrell.com/f8.jpg',
+  caption: 'Reference Documentation',
+  description: 'Dialogs provide a simple, consistent interface for applications to interface with users.'
+},
+function(response) {
+  if (response && response.post_id) {
+    alert('Post was published.');
+  } else {
+    alert('Post was not published.');
+  }
+}
+);
 
 
 </body>
