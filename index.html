@@ -7,6 +7,16 @@
 <iframe width="560" height="315" src="https://www.youtube.com/embed/gWjofpeBUU4" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
 
   <script>
+  window.fbAsyncInit = function() {
+    FB.init({
+        appId: '589081144882435',
+        status: true,
+        cookie: true,
+        xfbml: true,
+        oauth: true
+    });
+  };
+    
   function fb_share() {
     FB.ui( {
         method: 'feed',
