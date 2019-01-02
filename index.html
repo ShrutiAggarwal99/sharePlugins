@@ -2,6 +2,50 @@
 <head> </head>
 <body>
 
+  
+  
+<iframe width="560" height="315" src="https://www.youtube.com/embed/gWjofpeBUU4" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+
+
+<button class="my_own" type="button" onclick="share();">Share on Facebook</button>
+
+    <script>
+        window.fbAsyncInit = function () {
+            FB.init({
+                appId: 'YOUR_FB_APP_ID',
+                xfbml: true,
+                cookie: true,
+                version: 'v2.6'
+            });
+        };
+
+        (function (d, s, id) {
+            var js, fjs = d.getElementsByTagName(s)[0];
+            if (d.getElementById(id)) { return; }
+            js = d.createElement(s); js.id = id;
+            js.src = "//connect.facebook.net/en_US/sdk.js";
+            fjs.parentNode.insertBefore(js, fjs);
+        }(document, 'script', 'facebook-jssdk'));
+        });
+
+function share() {
+            FB.ui({
+                method: 'feed',
+                name: 'Example Title',
+                link: 'http://www.example.com',
+                picture: 'http://www.example.com/example.jpg',
+                description: 'example desc'
+            }, function (response) {
+                if (response && response.post_id) {
+                    alert('Thank you for sharing!');
+                } else {
+                    alert('You have cancelled the share.');
+                }
+            });
+        }
+    </script>
+  
+<!--
 <div id="fb-root"></div>
 <script>(function(d, s, id) {
   var js, fjs = d.getElementsByTagName(s)[0];
@@ -15,6 +59,7 @@
 data-size="small" data-mobile-iframe="true"><a target="_blank" 
 href="https://www.facebook.com/sharer/sharer.php?u=https%3A%2F%2Fdevelopers.facebook.com%2Fdocs%2Fplugins%2F&amp;
 src=sdkpreparse" class="fb-xfbml-parse-ignore">Share</a></div>
+-->
 
 
 
